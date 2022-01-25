@@ -1,0 +1,36 @@
+.side-container{
+    background-color: aquamarine;
+    
+    background-size: cover;
+    padding-top: 69px;
+    
+}
+.example-container {
+    position: absolute;
+    background-color: #555;
+    top: 64px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+  }
+  .profile-card{
+      padding:30px;
+      margin:30px;
+  }
+  .example-events {
+    width: 300px;
+    height: 200px;
+    overflow: auto;
+    border: 1px solid #555;
+  }
+  
+  .type-container{
+      display:flex;
+      flex-direction:column;
+      justify-content:space-around;
+      align-items:center;
+  }
+  hr{
+      margin:20px;
+  }
