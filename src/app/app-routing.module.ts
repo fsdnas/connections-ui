@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FeedComponent } from './components/feed/feed.component';
 import { HomeComponent } from './components/home/home.component';
 import { JobsComponent } from './components/jobs/jobs.component';
+import { MyNetworkComponent } from './components/my-network/my-network.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'jobs', component: JobsComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'network', component: MyNetworkComponent},
   { path: 'feed', component: FeedComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
