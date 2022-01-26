@@ -11,7 +11,6 @@ const routes: Routes = [
   { path: 'jobs', component: JobsComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'feed', component: FeedComponent },
-  { path: 'profile', component: ProfileComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

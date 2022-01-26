@@ -1,0 +1,35 @@
+.cover-image {
+    height: 200px;
+    width: 100%;
+}
+.profile-pic {
+    height: 170px;
+    width: 170px;
+    border-radius: 100px;
+    position: absolute;
+    margin: 50px;
+}
+.name { 
+    margin-top: 30px;
+    margin-left: 52px;
+}
+.bio { 
+    font-size: 16px;
+    margin-left: 52px;
+}
+.about-container {
+    padding: 30px;
+}
+.edu-logo {
+    height: 80px;
+    width: 70px;
+}
+.heading {
+  margin-top: -18px;
+}
+.edu-card {
+    display: flex;
+}
+.edu-text-card {
+    margin-left: 20px;
+}
