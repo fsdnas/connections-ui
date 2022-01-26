@@ -1,2 +1,63 @@
-<p>post works!</p>
+<!-- post ui -->
 
+<mat-card class="card-container">
+  <div class="top-post-container">
+    <a><img class="avatar" [src]="'assets/avatar.jpg'" /></a>
+    <div class="top-post-text">
+      <mat-card-title class="profile-name">Raj Shekar <small [ngStyle]="{'font-weight':'normal'}">· 2nd</small></mat-card-title>
+      <span></span>
+      <mat-card-subtitle [ngClass]="'sub'"
+        >Front-end Developer</mat-card-subtitle
+      >
+      <mat-card-subtitle [ngClass]="'sub'"
+        >1d <strong>·</strong>
+        <span class="material-icons public-icon">
+          public
+        </span></mat-card-subtitle
+      >
+    </div>
+  </div>
+  <mat-card-content>
+    <p>This card indeterminates progress bar.</p>
+    <p>{{ longText }}</p>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions [ngClass]="'action-container'">
+    <button
+      mat-button
+      (click)="likeClicked()"
+      [ngClass]="'action-button'"
+      color="{{ isLikeClicked ? '' : 'primary' }}"
+    >
+      <span class="material-icons icon">
+        {{ isLikeClicked ? "thumb_up_off_alt" : "thumb_up" }}
+      </span>
+      Like
+    </button>
+
+    <button mat-button (click)="toggleShow()" [ngClass]="'action-button'">
+      <span class="material-icons icon"> comment </span>Comment
+    </button>
+
+    <button mat-button [ngClass]="'action-button'" (click)="onShare()">
+      <span class="material-icons icon"> share </span>Share
+    </button>
+  </mat-card-actions>
+
+  <div *ngIf="isShown">
+    <mat-form-field
+      class="example-full-width comment-container"
+      appearance="fill"
+    >
+      <mat-label>Leave a comment</mat-label>
+      <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+    </mat-form-field>
+    <mat-card-actions class="comment-button">
+        <div class="example-button-container">
+            <button mat-fab color="primary" >
+              <mat-icon>send</mat-icon>
+            </button>
+          </div>
+    </mat-card-actions>
+  </div>
+</mat-card>
