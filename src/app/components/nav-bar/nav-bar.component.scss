@@ -1,18 +1,25 @@
 .nav-bar {
   background-color: #3f51b5;
-  color:#ffffff;
-  position:fixed;
-  
-}
-.title{
-    font-size:30px;
-}
-.item{
-    font-size:15px;
+  color: #ffffff;
+  // position:fixed;
 }
 
-span{
-    transform: scale(1.5);
+.globe-icon {
+  width: 25px;
+  height: 25px;
+  margin-left:-2px;
+  margin-right:-3px;
+}
+
+.title {
+  font-size: 30px;
+}
+.item {
+  font-size: 15px;
+}
+
+span {
+  transform: scale(1.5);
 }
 
 .spacer {
@@ -25,4 +32,3 @@ div {
 .title {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
-
