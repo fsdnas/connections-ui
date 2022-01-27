@@ -1,0 +1,29 @@
+.home-container {
+    background-image: url('/assets/homeimg.png');
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 60px;
+}
+.home-heading {
+    color: #fff;
+    font-size: 48px;
+    margin-top: 150px;
+}
+.home-desc {
+    color: #fff;
+    font-size: 24px;
+    max-width: 60%;
+    margin-top: 30px;
+    word-spacing: normal;
+    line-height: normal;
+}
+.find-btn {
+    background-color: #3f51b5;
+    color: #fff;
+    font-size: 18px;
+    font-family: "Roboto";
+    margin-top: 30px;
+}
