@@ -1,1 +1,12 @@
-<p>job-details works!</p>
+<mat-card *ngIf="job">
+    <mat-card-header>
+        <mat-card-title> {{job.title}}</mat-card-title>
+        <mat-card-title> {{job.location}}</mat-card-title>
+        <mat-card-title> {{job.employmentType}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-lg-image src="" alt=""/>
+    <mat-card-content>
+        <p>{{job.description}}</p>
+    </mat-card-content>
+ 
+</mat-card>

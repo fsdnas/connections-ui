@@ -3,28 +3,86 @@
   <mat-drawer mode="side" opened>
     <mat-card class="profile-card">
       <mat-card-header>
-        <span class="material-icons"> person_pin </span>
-        <mat-card-title>Acheron Acheron</mat-card-title>
+          <mat-card-title>Kevin </mat-card-title>
         <mat-card-subtitle>Lead Software Developer</mat-card-subtitle>
+        <mat-card-subtitle>expert</mat-card-subtitle>
       </mat-card-header>
-      <mat-card-content> expert </mat-card-content>
     </mat-card>
     <div class="type-container">
-        <h1>Type of Employment</h1>
-        <a>Full Time</a><br>
-        <a>Part Time</a><br>
-        <a>Contract</a><br>
-        <a>Internship</a><br>
+      <h1>Type of Employment</h1>
+      <a>Full Time</a><br>
+      <a>Part Time</a><br>
+      <a>Contract</a><br>
+      <a>Internship</a><br>
     </div>
     <hr>
     <div class="type-container">
-        <h1>Salary Range</h1>
-        <a>10,000-20,000</a><br>
-        <a>10,000-20,0000</a><br>
-        <a>10,000-20,00000</a><br>
-        <a>Internship</a><br>
+      <h1>Salary Range</h1>
+      <a>200000 - 300000</a><br>
+      <a>300000 - 400000</a><br>
+      <a>400000 - 500000</a><br>
+    </div>
+    <div>
+
     </div>
     <hr>
   </mat-drawer>
-  <mat-drawer-content>Main content</mat-drawer-content>
+  <mat-drawer-content>
+    <mat-toolbar>
+      <mat-form-field style="margin-left: 900px;">
+        <div>
+          <input matInput name='search' [(ngModel)]="search" placeholder="search">
+          <button mat-icon-button>
+            <mat-icon aria-label="label">search</mat-icon>
+          </button>
+        </div>
+      </mat-form-field>
+    </mat-toolbar>
+    <mat-card class="job-card" *ngFor="let job of jobsList">
+      <div [ngStyle]="{display:'flex'}">
+        <a routerLink="company">
+        <img class="company-logo" *ngIf="job.company" src="{{job.company.logo}}" />
+
+        </a>
+        <div>
+          <h1 class="job-title">{{job.title}}</h1>
+          <span [ngStyle]="{'color':'gold'}" class="material-icons">
+            star
+          </span>
+          <span [ngStyle]="{'color':'gold'}" class="material-icons">
+            star
+          </span>
+          <span [ngStyle]="{'color':'gold'}" class="material-icons">
+            star
+          </span>
+          <span [ngStyle]="{'margin-right':'-25px','color':'gold'}" class="material-icons">
+            star
+          </span>
+          <div>
+          </div>
+        </div>
+      </div>
+      <div [ngStyle]="{display:'flex' ,'justify-content':'space-between'}">
+        <div [ngStyle]="{display:'flex'}">
+          <span class="material-icons">
+            location_on
+          </span>
+          <h1 class="job-info">{{job.location | titlecase}}</h1>
+          <span class="material-icons" [ngStyle]="{'padding-left':'20px'}">
+            work
+          </span>
+          <h1 class="job-info">{{job.employmentType | titlecase}}</h1>
+        </div>
+        <div [ngStyle]="{display:'flex' ,'flex-direction':'row'}">
+          <h1 class="job-info" *ngIf="job.jobDetails">{{job.jobDetails.salary | currency: "INR"}}</h1>
+        </div>
+      </div>
+      <hr>
+      <div>
+        <h1 style="font-size: large;">Description</h1>
+        <p style="padding-left: 10px;">{{job.description}}</p>
+      </div>
+      <button style="background-color: #4330a1;color: white;" mat-button routerLink="job-details" (click)="onSubmit(job)">View More</button>
+    </mat-card>
+  </mat-drawer-content>
 </mat-drawer-container>

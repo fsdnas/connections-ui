@@ -14,5 +14,8 @@ export class JobsService {
     return this._http.get<Job[]>(this._baseurl);
   }
 
+  getJobById(jobId:number){
+    return this._http.get<Job>(`${this._baseurl}/id/${jobId}`)
+  }
   
 }

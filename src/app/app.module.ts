@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MyNetworkComponent } from './components/my-network/my-network.component';
+import { CompanyComponent } from './components/job-details/company/company.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { MyNetworkComponent } from './components/my-network/my-network.component
     PostComponent,
     NavBarComponent,
     MyNetworkComponent,
+    CompanyComponent,
   ],
   imports: [
     BrowserModule,
