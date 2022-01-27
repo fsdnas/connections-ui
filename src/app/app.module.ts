@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MyNetworkComponent } from './components/my-network/my-network.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
