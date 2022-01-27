@@ -1,0 +1,62 @@
+.card-container {
+  max-width: 400px;
+  margin-left: 40px;
+}
+.icon {
+  margin-right: 4px;
+}
+
+.comment-container {
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.action-container {
+  text-align: center;
+}
+
+.action-button {
+  font-size: 15px;
+}
+.avatar{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.public-icon{
+  transform: scale(0.6);
+  vertical-align:middle;
+}
+
+.top-post-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin-bottom: 10px;
+}
+
+.sub{
+  margin-top: 0px;
+  margin-bottom:0px;
+}
+
+.profile-name{
+  font-size: 17px;
+  // font-weight: bold;
+}
+
+.top-post-text{
+  margin-left: 10px;
+}
+
+.comment-button{
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-end;
+  margin-right: 20px;
+  margin-top:0px;
+  
+}
