@@ -1,9 +1,16 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Post } from '../models/post/post';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PostService {
+  private _baseUrl: string = 'http://localhost:8083/posts-api';
+  constructor(private _http: HttpClient) {}
 
-  constructor() { }
+  getAllPosts = (): Observable<Post[]> => {
+    return this._http.get<Post[]>(this._baseUrl + '/posts');
+  };
 }

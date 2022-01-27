@@ -1,13 +1,18 @@
 <!-- post ui -->
 
-<mat-card class="card-container">
+<mat-card class="card-container" *ngFor="let post of posts">
   <div class="top-post-container">
     <a><img class="avatar" [src]="'assets/avatar.jpg'" /></a>
     <div class="top-post-text">
-      <mat-card-title class="profile-name">Raj Shekar <small [ngStyle]="{'font-weight':'normal'}">· 2nd</small></mat-card-title>
+      <mat-card-title class="profile-name"
+        >{{ post.profile.name }}
+        <small [ngStyle]="{ 'font-weight': 'normal' }"
+          >· 2nd</small
+        ></mat-card-title
+      >
       <span></span>
       <mat-card-subtitle [ngClass]="'sub'"
-        >Front-end Developer</mat-card-subtitle
+        >{{post.profile.bio}}</mat-card-subtitle
       >
       <mat-card-subtitle [ngClass]="'sub'"
         >1d <strong>·</strong>
@@ -18,8 +23,8 @@
     </div>
   </div>
   <mat-card-content>
-    <p>This card indeterminates progress bar.</p>
-    <p>{{ longText }}</p>
+    <p>{{ post.title }}</p>
+    <p>{{ post.description }}</p>
   </mat-card-content>
   <mat-divider></mat-divider>
   <mat-card-actions [ngClass]="'action-container'">
@@ -53,11 +58,11 @@
       <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
     </mat-form-field>
     <mat-card-actions class="comment-button">
-        <div class="example-button-container">
-            <button mat-fab color="primary" >
-              <mat-icon>send</mat-icon>
-            </button>
-          </div>
+      <div class="example-button-container">
+        <button mat-fab color="primary">
+          <mat-icon>send</mat-icon>
+        </button>
+      </div>
     </mat-card-actions>
   </div>
 </mat-card>

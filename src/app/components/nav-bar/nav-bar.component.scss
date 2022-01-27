@@ -17,10 +17,12 @@
 }
 .item {
   font-size: 15px;
+  margin-top:10px;
+ 
 }
 
 span {
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 
 .spacer {
@@ -32,4 +34,28 @@ div {
 
 .title {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.navbar-component-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+  
+}
+
+.items-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-font{
+  font-size: 10px;
+  margin-top:-6px;
+}
+.profile-me{
+  margin-top:14px;
 }

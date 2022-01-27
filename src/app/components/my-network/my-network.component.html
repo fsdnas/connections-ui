@@ -1,14 +1,22 @@
-<!-- <ul *ngFor="let profile of profiles">
-    <li>{{profile.name}}</li>
-    <li>{{profile.email}}</li>
-    <li *ngIf = "profile.profileDetails" >{{profile.profileDetails.qualification }}</li>
-    <li *ngIf = "profile.profileDetails" >{{profile.profileDetails.openTo }}</li>
-</ul> -->
-
-<div class="profile-container">
-    <div *ngFor="let profile of profiles" class="details-card">
-        <img src="{{profile.profileImage}}" alt="">
-        <h3>{{profile.name}}</h3>
-        <p>{{profile.bio}}</p>
-    </div>
+<div [ngStyle]="{'display':'flex','flex-wrap':'wrap'}">
+  <mat-card *ngFor="let profile of profiles" class="details-card">
+    <mat-card-header class="network-profile">
+      <img src="{{ profile.profileImage }}" [ngStyle]="{'margin-bottom':'10px'}" />
+      <div>
+        <mat-card-title>{{ profile.name }}</mat-card-title>
+        <mat-card-subtitle>{{ profile.bio }}</mat-card-subtitle>
+        <mat-card-subtitle
+          >{{ profile.profileDetails.experience }} years of
+          experience</mat-card-subtitle
+        >
+        <strong>Skills: </strong
+        ><span *ngFor="let skill of profile.profileDetails.skills">
+          {{ skill.skillName }}
+        </span>
+      </div>
+      <mat-action-row>
+        <button mat-stroked-button color="primary" [ngStyle]="{'border-radius': '12px','margin-top':'10px'}">View Profile</button>
+      </mat-action-row>
+    </mat-card-header>
+  </mat-card>
 </div>

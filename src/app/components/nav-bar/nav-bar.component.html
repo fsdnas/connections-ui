@@ -2,22 +2,48 @@
 
 <mat-toolbar color="accent" class="mat-elevation-z5 nav-bar">
   <a class="title" mat-button class="title" routerLink="">
-   
-    <span>C</span><img [src]="'assets/globe.gif'" class="globe-icon">nnections
+    <span>C</span><img [src]="'assets/globe.gif'" class="globe-icon" />nnections
   </a>
   <span class="spacer"></span>
 
   <div class="items-container">
-    <a class="item" mat-button routerLink="" routerLinkActive="true">Home</a>
-    <a class="item" mat-button routerLink="network">My Network</a>
-    <a class="item" mat-button routerLink="feed">Feed</a>
-    <a class="item" mat-button routerLink="jobs">Jobs</a>
-    <a mat-button routerLink="profile">
-      <span class="material-icons item"> account_circle </span>
+    <a class="item" mat-button routerLink="" routerLinkActive="true">
+      <div class="navbar-component-container">
+        <span class="material-icons"> house </span>
+        <span class="icon-font">Home</span>
+      </div>
     </a>
 
-    <a mat-button routerLink=""
-      ><span class="material-icons item"> logout </span></a
+    <a class="item" mat-button routerLink="network">
+      <div class="navbar-component-container">
+        <span class="material-icons"> group </span>
+        <span class="icon-font">My Network</span>
+      </div>
+    </a>
+
+    <a class="item" mat-button routerLink="feed">
+      <div class="navbar-component-container">
+        <span class="material-icons"> newspaper </span>
+        <span class="icon-font"> Feed</span>
+      </div>
+    </a>
+
+    <a class="item" mat-button routerLink="jobs">
+      <div class="navbar-component-container">
+        <span class="material-icons"> business_center </span>
+        <span class="icon-font">Jobs</span>
+      </div>
+    </a>
+
+    <a mat-button routerLink="profile">
+      <div class="navbar-component-container profile-me">
+      <span class="material-icons "> account_circle </span>
+      <span class="icon-font" [ngStyle]="{'font-size':'9px'}">Me</span>
+      </div>
+    </a>
+
+    <a mat-button routerLink="" 
+      ><span class="material-icons "> logout </span></a
     >
   </div>
 </mat-toolbar>
