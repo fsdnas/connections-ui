@@ -1,1 +1,14 @@
-<p>my-network works!</p>
+<!-- <ul *ngFor="let profile of profiles">
+    <li>{{profile.name}}</li>
+    <li>{{profile.email}}</li>
+    <li *ngIf = "profile.profileDetails" >{{profile.profileDetails.qualification }}</li>
+    <li *ngIf = "profile.profileDetails" >{{profile.profileDetails.openTo }}</li>
+</ul> -->
+
+<div class="profile-container">
+    <div *ngFor="let profile of profiles" class="details-card">
+        <img src="{{profile.profileImage}}" alt="">
+        <h3>{{profile.name}}</h3>
+        <p>{{profile.bio}}</p>
+    </div>
+</div>

@@ -1,9 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Profile } from '../models/profile/profile';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
 
-  constructor() { }
+  private _baseurl: string = 'http://localhost:8081/profile-api/profiles'
+  constructor(private http: HttpClient) { }
+
+  getAllProfiles = ():Observable<Profile[]> => {
+    return this.http.get<Profile[]>(this._baseurl);
+  }
 }

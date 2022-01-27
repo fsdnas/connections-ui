@@ -18,6 +18,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MyNetworkComponent } from './components/my-network/my-network.component';
 import { CompanyComponent } from './components/job-details/company/company.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
