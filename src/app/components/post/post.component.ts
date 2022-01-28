@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { map } from 'rxjs';
 import { Post } from 'src/app/models/post/post';
 import { PostService } from 'src/app/services/post.service';
 
@@ -15,6 +16,7 @@ export class PostComponent implements OnInit {
   // originally bred for hunting.`;
   likeButtonColor: string = 'primary';
   posts: Post[] | undefined;
+  postId!: number;
   isShown: boolean = false; // hidden by default
   isLikeClicked: boolean = false;
 
@@ -42,13 +44,15 @@ export class PostComponent implements OnInit {
         console.log('completed');
       },
     });
+
+    
   }
 
   toggleShow = () => {
     this.isShown = !this.isShown;
   };
 
-  likeClicked = () => {
+  likeClicked = (postId: Number) => {
     this.isLikeClicked = !this.isLikeClicked;
   };
 

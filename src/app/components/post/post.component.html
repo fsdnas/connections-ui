@@ -30,9 +30,9 @@
   <mat-card-actions [ngClass]="'action-container'">
     <button
       mat-button
-      (click)="likeClicked()"
+      (click)="likeClicked(post.postId)"
       [ngClass]="'action-button'"
-      color="{{ isLikeClicked ? '' : 'primary' }}"
+      color="{{ isLikeClicked ? 'primary' : '' }}"
     >
       <span class="material-icons icon">
         {{ isLikeClicked ? "thumb_up_off_alt" : "thumb_up" }}

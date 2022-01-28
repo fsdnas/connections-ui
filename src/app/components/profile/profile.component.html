@@ -1,44 +1,130 @@
-<div style="display: flex; flex-direction: column;">
-    <img class="cover-image" src="https://cutewallpaper.org/21/professional-background-photos/Professional-Page-Background-Vector-Images-over-5700.jpg" alt="">
-    <img class="profile-pic" src="/assets/profileimg.jpg" alt="">
+<div style="display: flex; flex-direction: column">
+  <img
+    class="cover-image"
+    src="https://cutewallpaper.org/21/professional-background-photos/Professional-Page-Background-Vector-Images-over-5700.jpg"
+    alt=""
+  />
+  <img class="profile-pic" src="/assets/profileimg.jpg" alt="" />
 </div>
 <div>
-    <h2 class="name">Nayeem Ahmed</h2>
-    <p class="bio">Software Engineer at Acheron</p>
-    <p class="bio">Madhapur, Hyderabad</p>
+  <h2 class="name">Nayeem Ahmed</h2>
+  <p class="bio">Software Engineer at Acheron</p>
+  <p class="bio">Madhapur, Hyderabad</p>
 </div>
-<hr>
-<div class="about-container">
-    <h1 class="heading">About</h1>
-    <p>Recent MBA graduate of Northwestern University. As one of 150 students who received the Connor Fellowship in 2019, I know how important project management skills can be to underperforming businesses. I consider myself a grounded project manager with an entrepreneurial spirit.</p>
-    <p>My internship experience at larger institutions, including Wyndham Destinations and Cisco Systems, has provided me with business analyst skills that work for companies of any size. A world-class education at both USC and Northwestern has equipped me with the ins and outs of business ethics and philosophies.</p>
-    <p>I am looking for opportunities in small businesses that could be more successful with efficient management. With the right resources and team members, I can bring struggling companies back from the brink.</p>
-</div>
-<hr>
-<div class="about-container">
-    <h1 class="heading">Education</h1>
-    <div class="edu-card">
-       <img class="edu-logo" src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Jawaharlal_Nehru_University_Logo_vectorized.svg" alt="">
-       <div class="edu-text-card">
-           <p>Jawahar University</p>
-           <p>Masters of Business Administration</p>
-           <p>2015-2019</p>
-       </div>
+<mat-divider></mat-divider>
+
+<mat-tab-group dynamicHeight>
+  <mat-tab label="About">
+    <div class="about-container">
+      <h1 class="heading">About</h1>
+      <p>
+        Recent MBA graduate of Northwestern University. As one of 150 students
+        who received the Connor Fellowship in 2019, I know how important project
+        management skills can be to underperforming businesses. I consider
+        myself a grounded project manager with an entrepreneurial spirit.
+      </p>
+      <p>
+        My internship experience at larger institutions, including Wyndham
+        Destinations and Cisco Systems, has provided me with business analyst
+        skills that work for companies of any size. A world-class education at
+        both USC and Northwestern has equipped me with the ins and outs of
+        business ethics and philosophies.
+      </p>
+      <p>
+        I am looking for opportunities in small businesses that could be more
+        successful with efficient management. With the right resources and team
+        members, I can bring struggling companies back from the brink.
+      </p>
     </div>
-    <div class="edu-card">
-        <img class="edu-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFgXzt-0-QA-PGQRs4mucVSoRGqWg0BvgHaD87u-QiJbh-l6FIj_f6ZSFhQxzqKuShp4M&usqp=CAU" alt="">
+  </mat-tab>
+  <mat-tab label="Education">
+    <div class="about-container">
+      <h1 class="heading">Education</h1>
+      <div class="edu-card">
+        <img
+          class="edu-logo"
+          src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Jawaharlal_Nehru_University_Logo_vectorized.svg"
+          alt=""
+        />
         <div class="edu-text-card">
-            <p>Narayana Junior College</p>
-            <p>Intermediate, MPC</p>
-            <p>2013-2015</p>
+          <p>Jawahar University</p>
+          <p>Masters of Business Administration</p>
+          <p>2015-2019</p>
         </div>
-     </div>
-     <div class="edu-card">
-        <img class="edu-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKVVvtNJnpYfBVYfGihEHTclN3ene9IEIdJwtT_dWrvTUkFr0vK0QA5iiZ9BV5OKeFzgM&usqp=CAU" alt="">
+      </div>
+      <div class="edu-card">
+        <img
+          class="edu-logo"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFgXzt-0-QA-PGQRs4mucVSoRGqWg0BvgHaD87u-QiJbh-l6FIj_f6ZSFhQxzqKuShp4M&usqp=CAU"
+          alt=""
+        />
         <div class="edu-text-card">
-            <p>Greenwood High School</p>
-            <p>Central Board of Secondary Education</p>
-            <p>2004-2013</p>
+          <p>Narayana Junior College</p>
+          <p>Intermediate, MPC</p>
+          <p>2013-2015</p>
         </div>
-     </div>
+      </div>
+      <div class="edu-card">
+        <img
+          class="edu-logo"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKVVvtNJnpYfBVYfGihEHTclN3ene9IEIdJwtT_dWrvTUkFr0vK0QA5iiZ9BV5OKeFzgM&usqp=CAU"
+          alt=""
+        />
+        <div class="edu-text-card">
+          <p>Greenwood High School</p>
+          <p>Central Board of Secondary Education</p>
+          <p>2004-2013</p>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Skills"> 
+      
+    <!-- <h1 class="skills-heading">Skills</h1> -->
+    <div class="skills-icon">
+    <i [ngStyle]="{'color':'blue'}" class="fab fa-js-square"></i>
+    <i [ngStyle]="{'color':'yellow'}" class="fab fa-python"></i>
+    <i [ngStyle]="{'color':'red'}" class="fab fa-java"></i>
+    <i [ngStyle]="{'color':'cyan'}" class="fab fa-html5"></i>
+    <i [ngStyle]="{'color':'red'}" class="fab fa-css3"></i>
+    <i [ngStyle]="{'color':'red'}" class="fab fa-angular"></i>
 </div>
+</mat-tab>
+  <mat-tab label="Posts">
+    <mat-tab-group backgroundColor="primary">
+      <mat-tab label="View All Posts"> 
+        <mat-card class="card-container" *ngFor="let post of posts">
+          <div class="top-post-container">
+            <a><img class="avatar" [src]="'assets/avatar.jpg'" /></a>
+            <div class="top-post-text">
+              <mat-card-title class="profile-name"
+                >{{ post.profile.name }}
+                <small [ngStyle]="{ 'font-weight': 'normal' }"
+                  >· 2nd</small
+                ></mat-card-title
+              >
+              <span></span>
+              <mat-card-subtitle [ngClass]="'sub'">{{
+                post.profile.bio
+              }}</mat-card-subtitle>
+              <mat-card-subtitle [ngClass]="'sub'"
+                >1d <strong>·</strong>
+                <span class="material-icons public-icon">
+                  public
+                </span></mat-card-subtitle
+              >
+            </div>
+          </div>
+          <mat-card-content>
+            <p>{{ post.title }}</p>
+            <p>{{ post.description }}</p>
+          </mat-card-content>
+         
+        </mat-card></mat-tab>
+      <mat-tab label="Add Post"> Content 2 </mat-tab>
+      <mat-tab label="Update Post"> Content 3 </mat-tab>
+      <mat-tab label="Delete Post"> Content 3 </mat-tab>
+    </mat-tab-group>
+
+  </mat-tab>
+</mat-tab-group>
