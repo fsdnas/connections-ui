@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { map } from 'rxjs';
+import { Comments } from 'src/app/models/post/comments';
 import { Post } from 'src/app/models/post/post';
 import { PostService } from 'src/app/services/post.service';
 
@@ -11,16 +11,17 @@ import { PostService } from 'src/app/services/post.service';
   styleUrls: ['./post.component.scss'],
 })
 export class PostComponent implements OnInit {
-  // longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
-  // from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
-  // originally bred for hunting.`;
   likeButtonColor: string = 'primary';
   posts: Post[] | undefined;
+  pComments: Comments[] | undefined;
+  
   postId!: number;
+  commentsPostId!: number; //passing the postId to get comments
   isShown: boolean = false; // hidden by default
   isLikeClicked: boolean = false;
-
-  // like!:any;
+  likedPostId!: number;
+  commentPostId!: number;
+  showCommentsToggle: boolean = false;
 
   like: string = '';
   unlike: string = '';
@@ -45,15 +46,38 @@ export class PostComponent implements OnInit {
       },
     });
 
-    
+    this._postService.getCommentsByPostId(305).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.pComments = data;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        console.log('completed');
+      },
+    });
   }
 
-  toggleShow = () => {
+  toggleShow = (postId: number) => {
     this.isShown = !this.isShown;
+    console.log(postId);
+    this.commentPostId = postId;
   };
 
-  likeClicked = (postId: Number) => {
+  showComments = (id: number) => {
+    this.showCommentsToggle = !this.showCommentsToggle;
+    // console.log(id);
+    this.commentsPostId = id;
+    console.log(this.commentPostId);
+    console.log(this.pComments)
+  };
+
+  likeClicked = (postId: number) => {
     this.isLikeClicked = !this.isLikeClicked;
+    this.likedPostId = postId;
+    console.log(this.likedPostId);
   };
 
   onShare = () => {

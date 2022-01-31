@@ -4,13 +4,14 @@
     src="https://cutewallpaper.org/21/professional-background-photos/Professional-Page-Background-Vector-Images-over-5700.jpg"
     alt=""
   />
-  <img class="profile-pic" src="/assets/profileimg.jpg" alt="" />
+  <img class="profile-pic" src="assets/profiles/scarlet.jpg" alt="" />
 </div>
 <div>
-  <h2 class="name">Nayeem Ahmed</h2>
+  <h2 class="name">{{ profile.name }}</h2>
   <p class="bio">Software Engineer at Acheron</p>
   <p class="bio">Madhapur, Hyderabad</p>
 </div>
+
 <mat-divider></mat-divider>
 
 <mat-tab-group dynamicHeight>
@@ -78,53 +79,93 @@
       </div>
     </div>
   </mat-tab>
-  <mat-tab label="Skills"> 
-      
-    <!-- <h1 class="skills-heading">Skills</h1> -->
+  <mat-tab label="Skills">
     <div class="skills-icon">
-    <i [ngStyle]="{'color':'blue'}" class="fab fa-js-square"></i>
-    <i [ngStyle]="{'color':'yellow'}" class="fab fa-python"></i>
-    <i [ngStyle]="{'color':'red'}" class="fab fa-java"></i>
-    <i [ngStyle]="{'color':'cyan'}" class="fab fa-html5"></i>
-    <i [ngStyle]="{'color':'red'}" class="fab fa-css3"></i>
-    <i [ngStyle]="{'color':'red'}" class="fab fa-angular"></i>
-</div>
-</mat-tab>
+      <i [ngStyle]="{ color: 'blue' }" class="fab fa-js-square"></i>
+      <i [ngStyle]="{ color: 'yellow' }" class="fab fa-python"></i>
+      <i [ngStyle]="{ color: 'red' }" class="fab fa-java"></i>
+      <i [ngStyle]="{ color: 'cyan' }" class="fab fa-html5"></i>
+      <i [ngStyle]="{ color: 'red' }" class="fab fa-css3"></i>
+      <i [ngStyle]="{ color: 'red' }" class="fab fa-angular"></i>
+    </div>
+  </mat-tab>
   <mat-tab label="Posts">
-    <mat-tab-group backgroundColor="primary">
-      <mat-tab label="View All Posts"> 
-        <mat-card class="card-container" *ngFor="let post of posts">
-          <div class="top-post-container">
-            <a><img class="avatar" [src]="'assets/avatar.jpg'" /></a>
-            <div class="top-post-text">
-              <mat-card-title class="profile-name"
-                >{{ post.profile.name }}
-                <small [ngStyle]="{ 'font-weight': 'normal' }"
-                  >· 2nd</small
-                ></mat-card-title
-              >
-              <span></span>
-              <mat-card-subtitle [ngClass]="'sub'">{{
-                post.profile.bio
-              }}</mat-card-subtitle>
-              <mat-card-subtitle [ngClass]="'sub'"
-                >1d <strong>·</strong>
-                <span class="material-icons public-icon">
-                  public
-                </span></mat-card-subtitle
-              >
-            </div>
-          </div>
-          <mat-card-content>
-            <p>{{ post.title }}</p>
-            <p>{{ post.description }}</p>
+    <div class="posts-tab">
+      <form #addPost="ngForm" (ngSubmit)="onAddingPost(addPost)">
+        <mat-card class="card-container add-post-container">
+          <mat-card-content ngModel #profileId="ngModel" name="profileId" value="profile">
+            <!-- {{ profile.profileId }} -->
           </mat-card-content>
-         
-        </mat-card></mat-tab>
-      <mat-tab label="Add Post"> Content 2 </mat-tab>
-      <mat-tab label="Update Post"> Content 3 </mat-tab>
-      <mat-tab label="Delete Post"> Content 3 </mat-tab>
-    </mat-tab-group>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Title"
+              name="title"
+              ngModel
+              #title="ngModel"
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Topic"
+              name="topic"
+              ngModel
+              #topic="ngModel"
+            />
+          </mat-form-field>
+          <mat-form-field class="add-post-input" appearance="fill">
+            <mat-label>Share an article, post. or update ...</mat-label>
+            <textarea
+              name="description"
+              matInput
+              ngModel
+              #description="ngModel"
+              placeholder="Great things..."
+              required
+            ></textarea>
+          </mat-form-field>
 
+          <div class="post-button">
+            <button
+              mat-raised-button
+              type="submit"
+              color="primary"
+              [disabled]="!addPost.valid"
+            >
+              Post
+            </button>
+          </div>
+        </mat-card>
+      </form>
+
+      <mat-card class="card-container" *ngFor="let post of posts">
+        <div class="top-post-container">
+          <a><img class="avatar" [src]="'assets/avatar.jpg'" /></a>
+          <div class="top-post-text">
+            <mat-card-title class="profile-name"
+              >{{ post.profile.name }}
+              <small [ngStyle]="{ 'font-weight': 'normal' }"
+                >· 2nd</small
+              ></mat-card-title
+            >
+            <span></span>
+            <mat-card-subtitle [ngClass]="'sub'">{{
+              post.profile.bio
+            }}</mat-card-subtitle>
+            <mat-card-subtitle [ngClass]="'sub'"
+              >1d <strong>·</strong>
+              <span class="material-icons public-icon">
+                public
+              </span></mat-card-subtitle
+            >
+          </div>
+        </div>
+        <mat-card-content>
+          <p>{{ post.title }}</p>
+          <p>{{ post.description }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </mat-tab>
 </mat-tab-group>

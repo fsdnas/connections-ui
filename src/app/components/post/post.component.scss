@@ -1,7 +1,8 @@
 .card-container {
   max-width: 400px;
   margin-left: 40px;
-  margin-bottom:40px;
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
 .icon {
   margin-right: 4px;
@@ -21,43 +22,76 @@
 .action-button {
   font-size: 15px;
 }
-.avatar{
+.avatar {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-right: 10px;
 }
-.public-icon{
+
+.comment-avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.public-icon {
   transform: scale(0.6);
-  vertical-align:middle;
+  vertical-align: middle;
 }
 
-.top-post-container{
+.top-post-container {
   display: flex;
   flex-direction: row;
   justify-content: left;
   margin-bottom: 10px;
 }
 
-.sub{
+.sub {
   margin-top: 0px;
-  margin-bottom:0px;
+  margin-bottom: 0px;
 }
 
-.profile-name{
+.profile-name {
   font-size: 17px;
   // font-weight: bold;
 }
 
-.top-post-text{
+.top-post-text {
   margin-left: 10px;
 }
 
-.comment-button{
+.comment-button {
   display: flex;
   flex-direction: row;
-  justify-content:flex-end;
+  justify-content: flex-end;
   margin-right: 20px;
-  margin-top:0px;
-  
+  margin-top: 0px;
+}
+
+.add-post-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10px;
+}
+
+.comments-container {
+  max-width: 400px;
+}
+
+mat-divider {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.comment-time {
+  margin-left: auto;
+}
+
+.comments-start-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 10px;
 }

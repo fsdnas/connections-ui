@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,7 +19,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MyNetworkComponent } from './components/my-network/my-network.component';
 import { CompanyComponent } from './components/job-details/company/company.component';
-
+import { LoginComponent } from './components/login/login.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,7 @@ import { CompanyComponent } from './components/job-details/company/company.compo
     NavBarComponent,
     MyNetworkComponent,
     CompanyComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,8 +45,12 @@ import { CompanyComponent } from './components/job-details/company/company.compo
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatInputModule,
+    MatFormFieldModule,
     AppRoutingModule,
+   
   ],
+
   providers: [],
   bootstrap: [AppComponent],
 })

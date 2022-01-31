@@ -6,16 +6,18 @@ import { HomeComponent } from './components/home/home.component';
 import { JobDetailsComponent } from './components/job-details/job-details.component';
 import { JobsComponent } from './components/jobs/jobs.component';
 import { MyNetworkComponent } from './components/my-network/my-network.component';
+import { LoginComponent } from './components/nav-bar/nav-bar.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'jobs', component: JobsComponent },
   { path: 'job-details/:id', component: JobDetailsComponent },
   { path: 'jobs/company', component: CompanyComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'network', component: MyNetworkComponent},
+  { path: 'network', component: MyNetworkComponent },
   { path: 'feed', component: FeedComponent },
   { path: '**', component: PageNotFoundComponent },
 ];

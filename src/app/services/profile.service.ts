@@ -4,14 +4,17 @@ import { Observable } from 'rxjs';
 import { Profile } from '../models/profile/profile';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProfileService {
+  private _baseurl: string = 'http://localhost:8081/profile-api/profiles';
+  constructor(private http: HttpClient) {}
 
-  private _baseurl: string = 'http://localhost:8081/profile-api/profiles'
-  constructor(private http: HttpClient) { }
-
-  getAllProfiles = ():Observable<Profile[]> => {
+  getAllProfiles = (): Observable<Profile[]> => {
     return this.http.get<Profile[]>(this._baseurl);
-  }
+  };
+
+  getByProfileId = (profileId: number): Observable<Profile> => {
+    return this.http.get<Profile>(this._baseurl + '/id/' + profileId);
+  };
 }
