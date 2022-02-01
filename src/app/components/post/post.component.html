@@ -55,19 +55,27 @@
     </button>
   </mat-card-actions>
 
-  <div *ngIf="isShown && post.postId == commentPostId">
-    <mat-form-field class="comment-container" appearance="fill">
-      <mat-label>Leave a comment</mat-label>
-      <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-    </mat-form-field>
-    <mat-card-actions class="comment-button">
-      <div class="example-button-container">
-        <button mat-fab color="primary">
-          <mat-icon>send</mat-icon>
-        </button>
-      </div>
-    </mat-card-actions>
-  </div>
+  <form #addComment="ngForm" (ngSubmit)="onCommenting(addComment)">
+    <div *ngIf="isShown && post.postId == commentPostId">
+      <mat-form-field class="comment-container" appearance="fill">
+        <mat-label>Leave a comment</mat-label>
+        <textarea
+          matInput
+          placeholder="Ex. It makes me feel..."
+          name="comment"
+          ngModel
+          #comment="ngModel"
+        ></textarea>
+      </mat-form-field>
+      <mat-card-actions class="comment-button">
+        <div class="example-button-container">
+          <button mat-fab color="primary" type="submit">
+            <mat-icon>send</mat-icon>
+          </button>
+        </div>
+      </mat-card-actions>
+    </div>
+  </form>
 
   <a mat-button (click)="showComments(post.postId)">Show Comments</a>
   <div></div>

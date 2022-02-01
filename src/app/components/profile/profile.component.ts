@@ -13,7 +13,7 @@ import { Profile } from 'src/app/models/profile/profile';
 })
 export class ProfileComponent implements OnInit {
   posts: Post[] = [];
-  profile: Profile ;
+  profile: Profile;
 
   postedPost: Post;
   constructor(
@@ -52,8 +52,10 @@ export class ProfileComponent implements OnInit {
 
   onAddingPost = (addingPost: NgForm) => {
     console.log('clicked');
-    console.log(addingPost.value);
-    this._postService.addPost(addingPost.value).subscribe({
+
+    let post = addingPost.value;
+    post.profile = this.profile;
+    this._postService.addPost(post).subscribe({
       next: (data) => {
         console.log(data);
         // this.postedPost = data;
