@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Job } from 'src/app/models/jobs/job';
 import { JobsService } from 'src/app/services/jobs.service';
@@ -10,18 +11,31 @@ import { JobsService } from 'src/app/services/jobs.service';
 })
 export class JobDetailsComponent implements OnInit {
 
-  constructor(private _jobsService:JobsService, private _activatedRoute:ActivatedRoute) { }
+    
+    constructor(public dialog: MatDialog,
+      private _jobsService:JobsService,
+      private _activatedRoute:ActivatedRoute ) { }
   jobId!: number;
   job!:Job;
+  // dialog!:string;
+  employmentType!:string
 
   ngOnInit(): void {
     this._activatedRoute.paramMap.subscribe(map=>{
+      
       let id= map.get("id");
       if(id) 
         this.jobId=parseInt(id);
     });
-    
       this._jobsService.getJobById(this.jobId).subscribe(data=>this.job=data);
   }
+  onApply = () => {
+    this.dialog.open(Apply)
+  };
 
 }
+@Component({
+  selector: 'apply',
+  templateUrl: 'apply.html',
+})
+export class Apply {}

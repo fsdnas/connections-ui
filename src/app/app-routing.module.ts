@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'jobs', component: JobsComponent },
   { path: 'job-details/:id', component: JobDetailsComponent },
-  { path: 'jobs/company', component: CompanyComponent },
+  { path: 'company/:companyName', component: CompanyComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'network', component: MyNetworkComponent },
   { path: 'feed', component: FeedComponent },
