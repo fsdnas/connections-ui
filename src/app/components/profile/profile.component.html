@@ -160,6 +160,19 @@
               </span></mat-card-subtitle
             >
           </div>
+          <button [matMenuTriggerFor]="menu" [ngStyle]="{'margin-left':'auto'}" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="onDeletePost(post.postId)">
+              <mat-icon color="warn">delete</mat-icon>
+              <span>Delete</span>
+            </button>
+            <button  mat-menu-item>
+              <mat-icon color="accent" >update</mat-icon>
+              <span>Update</span>
+            </button>
+          </mat-menu>
         </div>
         <mat-card-content>
           <p>{{ post.title }}</p>

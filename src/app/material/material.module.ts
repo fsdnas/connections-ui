@@ -15,6 +15,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 
@@ -35,7 +36,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatListModule,
     MatExpansionModule,
     MatDialogModule,
-    MatDividerModule
+    MatDividerModule,MatMenuModule
   ],
   exports: [
     CommonModule,
@@ -52,7 +53,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatListModule,
     MatExpansionModule,
     MatDialogModule,
-    MatDividerModule
+    MatDividerModule,MatMenuModule
   ],
 })
 export class MaterialModule {}

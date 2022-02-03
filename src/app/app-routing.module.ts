@@ -5,8 +5,9 @@ import { FeedComponent } from './components/feed/feed.component';
 import { HomeComponent } from './components/home/home.component';
 import { JobDetailsComponent } from './components/job-details/job-details.component';
 import { JobsComponent } from './components/jobs/jobs.component';
+import { LoginComponent } from './components/login/login.component';
 import { MyNetworkComponent } from './components/my-network/my-network.component';
-import { LoginComponent } from './components/nav-bar/nav-bar.component';
+
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProfileComponent } from './components/profile/profile.component';
 

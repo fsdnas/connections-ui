@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-
-
 import { DatePipe } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,8 +20,6 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MyNetworkComponent } from './components/my-network/my-network.component';
 import { CompanyComponent } from './components/job-details/company/company.component';
 import { LoginComponent } from './components/login/login.component';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -47,10 +43,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatInputModule,
-    MatFormFieldModule,
     AppRoutingModule,
-   
   ],
 
   providers: [DatePipe],

@@ -1,0 +1,20 @@
+.container {
+  margin-left: 10px;
+  margin-top: 10px;
+  display: flex;
+  //   flex-direction: ;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 100px;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+button{
+    margin-top:10px;
+}

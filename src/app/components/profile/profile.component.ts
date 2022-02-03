@@ -54,11 +54,28 @@ export class ProfileComponent implements OnInit {
     console.log('clicked');
 
     let post = addingPost.value;
+
+    console.log(post);
     post.profile = this.profile;
     this._postService.addPost(post).subscribe({
       next: (data) => {
         console.log(data);
         // this.postedPost = data;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        console.log('completed');
+      },
+    });
+  };
+
+  onDeletePost = (postId: number) => {
+    console.log(postId);
+    this._postService.deletePost(postId).subscribe({
+      next: (data) => {
+        console.log('deleted');
       },
       error: (err) => {
         console.log(err);

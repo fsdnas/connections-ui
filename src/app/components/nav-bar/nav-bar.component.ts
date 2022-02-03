@@ -12,17 +12,19 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {}
 
   loginModule=()=>{
-    const dialogRef = this.dialog.open(LoginComponent);
+    // const dialogRef = this.dialog.open(LoginComponent);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log(`Dialog result: ${result}`);
+    // });
+
+    
 
   }
 }
 
-@Component({
-  selector: 'app-login-component',
-  templateUrl: '../login/login.component.html',
-})
-export class LoginComponent {}
+// @Component({
+//   selector: 'app-login',
+//   templateUrl: '\login.html',
+// })
+// export class LoginComponent {}
