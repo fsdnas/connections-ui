@@ -1,12 +1,22 @@
+<div class="job-card">
 <mat-card *ngIf="job">
     <mat-card-header>
         <mat-card-title> {{job.title}}</mat-card-title>
-        <mat-card-title> {{job.location}}</mat-card-title>
-        <mat-card-title> {{job.employmentType}}</mat-card-title>
+        <mat-card-subtitle>{{job.company.companyName}}</mat-card-subtitle>
+        <mat-card-subtitle>Location: {{job.location |titlecase}}</mat-card-subtitle>
+        <mat-card-subtitle>Employment type: {{job.employmentType | titlecase}}</mat-card-subtitle>
+        <mat-card-subtitle>Min Experience : {{job.jobDetails.experience}} year</mat-card-subtitle>
+        <mat-card-subtitle>No of Vacancies : {{job.jobDetails.vacancies}}</mat-card-subtitle>
+        <mat-card-content>
+          <img class="company-logo" *ngIf="job.company" src="{{job.company.logo}}"/>
+        </mat-card-content>
     </mat-card-header>
-    <img mat-card-lg-image src="" alt=""/>
+    <h2>Description:</h2>
     <mat-card-content>
         <p>{{job.description}}</p>
     </mat-card-content>
- 
+    <button mat-button style="background-color: #4330a1;color: white;"(click)="onApply()">
+        apply
+    </button>
 </mat-card>
+</div>

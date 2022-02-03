@@ -16,8 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MyNetworkComponent } from './components/my-network/my-network.component';
-import { CompanyComponent } from './components/job-details/company/company.component';
-
+import {CompanyComponent} from './components/company/company.component'
 
 @NgModule({
   declarations: [
@@ -31,7 +30,7 @@ import { CompanyComponent } from './components/job-details/company/company.compo
     PostComponent,
     NavBarComponent,
     MyNetworkComponent,
-    CompanyComponent,
+    CompanyComponent
   ],
   imports: [
     BrowserModule,

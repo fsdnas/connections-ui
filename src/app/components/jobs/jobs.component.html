@@ -3,29 +3,51 @@
   <mat-drawer mode="side" opened>
     <mat-card class="profile-card">
       <mat-card-header>
-          <mat-card-title>Kevin </mat-card-title>
+        <mat-card-title>Kevin </mat-card-title>
         <mat-card-subtitle>Lead Software Developer</mat-card-subtitle>
         <mat-card-subtitle>expert</mat-card-subtitle>
       </mat-card-header>
     </mat-card>
     <div class="type-container">
-      <h1>Type of Employment</h1>
-      <a>Full Time</a><br>
-      <a>Part Time</a><br>
-      <a>Contract</a><br>
-      <a>Internship</a><br>
+      <a class="filter-title" (click)="toggleFilterType()">Employment Type</a>
+      <hr style="width: 150px;">
+      <div *ngIf="show1">
+        <a class="sub-filter-title" (click)="onEmploymentType()">Part Time</a>
+        <h1 class="sub-filter-title">Full time</h1>
+      </div>
     </div>
-    <hr>
     <div class="type-container">
-      <h1>Salary Range</h1>
-      <a>200000 - 300000</a><br>
-      <a>300000 - 400000</a><br>
-      <a>400000 - 500000</a><br>
+      <a class="filter-title" (click)="toggleFilterLocation()">Location</a>
+      <hr style="width: 150px;">
+      <div *ngIf="show2">
+        <h1 class="sub-filter-title">Bangalore</h1>
+        <h1 class="sub-filter-title">Hyderabad</h1>
+        <h1 class="sub-filter-title">Mumbai</h1>
+        <h1 class="sub-filter-title">Pune</h1>
+      </div>
+    </div>
+    <div class="type-container">
+      <a class="filter-title" (click)="toggleFilterCompany()">Company</a>
+      <hr style="width: 150px;">
+      <div *ngIf="show3">
+        <h1 class="sub-filter-title">TCS</h1>
+        <h1 class="sub-filter-title">Google</h1>
+        <h1 class="sub-filter-title">Amazon</h1>
+        <h1 class="sub-filter-title">Myntra</h1>
+      </div>
+    </div>
+    <div class="type-container">
+      <a class="filter-title" (click)="toggleFilterExperience()">Experience</a>
+      <hr style="width: 150px;">
+      <div *ngIf="show4">
+        <h1 class="sub-filter-title">1 - 2</h1>
+        <h1 class="sub-filter-title">2 - 3</h1>
+        <h1 class="sub-filter-title">3 - 4</h1>
+        <h1 class="sub-filter-title">4+</h1>
+      </div>
     </div>
     <div>
-
     </div>
-    <hr>
   </mat-drawer>
   <mat-drawer-content>
     <mat-toolbar>
@@ -40,24 +62,25 @@
     </mat-toolbar>
     <mat-card class="job-card" *ngFor="let job of jobsList">
       <div [ngStyle]="{display:'flex'}">
-        <a routerLink="company">
-        <img class="company-logo" *ngIf="job.company" src="{{job.company.logo}}" />
-
+        <a *ngIf="job.company.logo" (click)="onCompany(job.company)">
+          <img class="company-logo" *ngIf="job.company" src="{{job.company.logo}}" alt="" />
         </a>
         <div>
           <h1 class="job-title">{{job.title}}</h1>
-          <span [ngStyle]="{'color':'gold'}" class="material-icons">
-            star
-          </span>
-          <span [ngStyle]="{'color':'gold'}" class="material-icons">
-            star
-          </span>
-          <span [ngStyle]="{'color':'gold'}" class="material-icons">
-            star
-          </span>
-          <span [ngStyle]="{'margin-right':'-25px','color':'gold'}" class="material-icons">
-            star
-          </span>
+          <div style="width: 100px;">
+            <span [ngStyle]="{'color':'gold'}" class="material-icons">
+              star
+            </span>
+            <span [ngStyle]="{'color':'gold'}" class="material-icons">
+              star
+            </span>
+            <span [ngStyle]="{'color':'gold'}" class="material-icons">
+              star
+            </span>
+            <span [ngStyle]="{'margin-right':'-25px','color':'gold'}" class="material-icons">
+              star
+            </span>
+          </div>
           <div>
           </div>
         </div>
@@ -82,7 +105,19 @@
         <h1 style="font-size: large;">Description</h1>
         <p style="padding-left: 10px;">{{job.description}}</p>
       </div>
-      <button style="background-color: #4330a1;color: white;" mat-button routerLink="job-details" (click)="onSubmit(job)">View More</button>
+      <button style="background-color: #4330a1;color: white;" mat-button routerLink="job-details"
+        (click)="onSubmit(job)">View More</button>
     </mat-card>
   </mat-drawer-content>
 </mat-drawer-container>
+
+
+
+
+<!-- <a (click)="toggleFilter()">Salary Range</a> -->
+<!-- <div *ngIf="show">
+        <h1></h1>
+      </div> <a (click)="toggleFilter()">Vacancies</a>
+      <div *ngIf="show">
+        <h1></h1>
+      </div> -->
