@@ -1,8 +1,6 @@
-<!-- post ui -->
-
 <mat-card class="card-container" *ngFor="let post of posts">
   <div class="top-post-container">
-    <a><img class="avatar" [src]="'assets/avatar.jpg'" /></a>
+    <a><img class="avatar" [src]="post.profile.profileImage" /></a>
     <div class="top-post-text">
       <mat-card-title class="profile-name"
         >{{ post.profile.name }}
@@ -11,9 +9,9 @@
         ></mat-card-title
       >
       <span></span>
-      <mat-card-subtitle [ngClass]="'sub'"
-        >{{post.profile.bio}}</mat-card-subtitle
-      >
+      <mat-card-subtitle [ngClass]="'sub'">{{
+        post.profile.bio
+      }}</mat-card-subtitle>
       <mat-card-subtitle [ngClass]="'sub'"
         >1d <strong>·</strong>
         <span class="material-icons public-icon">
@@ -30,17 +28,25 @@
   <mat-card-actions [ngClass]="'action-container'">
     <button
       mat-button
-      (click)="likeClicked()"
+      (click)="likeClicked(post.postId)"
       [ngClass]="'action-button'"
-      color="{{ isLikeClicked ? '' : 'primary' }}"
+      color="{{ isLikeClicked && post.postId == likedPostId ? 'primary' : '' }}"
     >
       <span class="material-icons icon">
-        {{ isLikeClicked ? "thumb_up_off_alt" : "thumb_up" }}
+        {{
+          isLikeClicked && post.postId == likedPostId
+            ? "thumb_up_off_alt"
+            : "thumb_up"
+        }}
       </span>
       Like
     </button>
 
-    <button mat-button (click)="toggleShow()" [ngClass]="'action-button'">
+    <button
+      mat-button
+      (click)="toggleShow(post.postId)"
+      [ngClass]="'action-button'"
+    >
       <span class="material-icons icon"> comment </span>Comment
     </button>
 
@@ -49,20 +55,46 @@
     </button>
   </mat-card-actions>
 
-  <div *ngIf="isShown">
-    <mat-form-field
-      class="example-full-width comment-container"
-      appearance="fill"
-    >
-      <mat-label>Leave a comment</mat-label>
-      <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-    </mat-form-field>
-    <mat-card-actions class="comment-button">
-      <div class="example-button-container">
-        <button mat-fab color="primary">
-          <mat-icon>send</mat-icon>
-        </button>
-      </div>
-    </mat-card-actions>
-  </div>
+  <form #addComment="ngForm" (ngSubmit)="onCommenting(addComment)">
+    <div *ngIf="isShown && post.postId == commentPostId">
+      <mat-form-field class="comment-container" appearance="fill">
+        <mat-label>Leave a comment</mat-label>
+        <textarea
+          matInput
+          placeholder="Ex. It makes me feel..."
+          name="comment"
+          ngModel
+          #comment="ngModel"
+        ></textarea>
+      </mat-form-field>
+      <mat-card-actions class="comment-button">
+        <div class="example-button-container">
+          <button mat-fab color="primary" type="submit">
+            <mat-icon>send</mat-icon>
+          </button>
+        </div>
+      </mat-card-actions>
+    </div>
+  </form>
+
+  <a mat-button (click)="showComments(post.postId)">Show Comments</a>
+  <div></div>
+  <mat-card
+    *ngIf="showCommentsToggle && post.postId == commentsPostId"
+    class="comments-container"
+  >
+    <div *ngFor="let c of pComments" [ngStyle]="{ padding: '10px' }">
+      <mat-card-header>
+        <div mat-card-avatar class="comments-start-container">
+          <img class="comment-avatar" [src]="'/assets/avatar.jpg'" />
+        </div>
+
+        <mat-card-subtitle>{{ c.comment }}</mat-card-subtitle>
+        <div class="comment-time">
+          <span>{{ c.commentTime | date: "dd/MM/yyyy" }}</span>
+        </div>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+    </div>
+  </mat-card>
 </mat-card>

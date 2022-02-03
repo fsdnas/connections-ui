@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
+
+import { DatePipe } from '@angular/common';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,7 +18,7 @@ import { PostComponent } from './components/post/post.component';
 import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { LoginComponent, NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MyNetworkComponent } from './components/my-network/my-network.component';
 import {CompanyComponent} from './components/company/company.component'
 
@@ -30,7 +34,8 @@ import {CompanyComponent} from './components/company/company.component'
     PostComponent,
     NavBarComponent,
     MyNetworkComponent,
-    CompanyComponent
+    CompanyComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,8 +45,10 @@ import {CompanyComponent} from './components/company/company.component'
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+   
   ],
-  providers: [],
+
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,12 +1,10 @@
-import { ProfileDetails } from "./profile-details";
+import { ProfileDetails } from './profile-details';
 
-export class Profile {
-    constructor(
-        public profileId: number,
-        public name: string,
-        public email: string,
-        public bio: string,
-        public profileImage: string,
-        public profileDetails: ProfileDetails
-    ){}
+export interface Profile {
+  profileId: number;
+  name: string;
+  email: string;
+  bio: string;
+  profileImage: string;
+  profileDetails: ProfileDetails;
 }
