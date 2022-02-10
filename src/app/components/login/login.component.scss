@@ -1,0 +1,47 @@
+.container {
+  margin-left: 10px;
+  margin-top: 10px;
+  display: flex;
+  //   flex-direction: ;
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: center;
+  padding: 10px;
+  max-width: 500px;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+}
+button {
+  margin-top: 10px;
+}
+
+mat-card {
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: center;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+}
+
+.register-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // align-items: center;
+
+}
+
+.submit-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+mat-radio-button{
+  margin-left: 10px;
+  margin-bottom: 10px;
+}

@@ -9,6 +9,6 @@ export class ProfileDetails {
         public qualification: string,
         public skills: Set<Skills>,
         public experience: number,
-        public certifications: Certifications
+        public certifications: Set<Certifications>
     ){}
 }

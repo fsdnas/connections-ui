@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-
-
 import { DatePipe } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,9 +16,10 @@ import { PostComponent } from './components/post/post.component';
 import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginComponent, NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { MyNetworkComponent } from './components/my-network/my-network.component';
 import {CompanyComponent} from './components/company/company.component'
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +44,6 @@ import {CompanyComponent} from './components/company/company.component'
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-   
   ],
 
   providers: [DatePipe],

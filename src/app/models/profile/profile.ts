@@ -7,4 +7,5 @@ export interface Profile {
   bio: string;
   profileImage: string;
   profileDetails: ProfileDetails;
+  password: string;
 }

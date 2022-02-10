@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,22 +8,17 @@ import {MatDialog} from '@angular/material/dialog';
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  isloggedIn: boolean = this._loginService.isLoggedIn();
+
+  constructor(private _loginService: LoginService, private _router: Router) {}
 
   ngOnInit(): void {}
 
-  loginModule=()=>{
-    const dialogRef = this.dialog.open(LoginComponent);
+  loginModule = () => {};
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-
-  }
+  LogOut = () => {
+    localStorage.clear();
+    this._loginService.logoutUser();
+    this._router.navigate(['']);
+  };
 }
-
-@Component({
-  selector: 'app-login-component',
-  templateUrl: '../login/login.component.html',
-})
-export class LoginComponent {}

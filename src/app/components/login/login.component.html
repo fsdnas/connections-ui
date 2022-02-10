@@ -1,6 +1,199 @@
-<form >
-    <input type="text" name="username" placeholder="Username"><br>
-    <input type="password" name="password" placeholder="Password"><br>
-    <button type="submit">Login</button>
-</form>
+<mat-card>
+  <mat-card-header> </mat-card-header>
+  <mat-tab-group>
+    <!-- signIn -->
+    <mat-tab label="Sign In">
+      <div class="container">
+        <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+          <div class="form-container">
+            <mat-form-field appearance="outline">
+              <mat-label>Username/Email</mat-label>
+              <input
+                matInput
+                placeholder="Enter Email"
+                #email="ngModel"
+                name="email"
+                ngModel
+              />
+              <mat-icon matSuffix>person_outline</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                [type]="hide ? 'password' : 'text'"
+                placeholder="Enter Password"
+                name="password"
+                #password="ngModel"
+                ngModel
+              />
 
+              <a
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+              >
+                <mat-icon>{{
+                  hide ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </a>
+            </mat-form-field>
+
+            <button
+              type="submit"
+              mat-raised-button
+              [ngStyle]="{ 'background-color': '#3f51b5', color: '#ffffff' }"
+            >
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </mat-tab>
+
+    <!-- sign Up -->
+    <mat-tab label="Sign Up">
+      <form
+        [formGroup]="myForm"
+        (ngSubmit)="submitForm()"
+        novalidate
+        class="register-form"
+      >
+        <!-- Name -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Name" formControlName="name" />
+        </mat-form-field>
+        <!-- Email -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Email" formControlName="email" />
+        </mat-form-field>
+        <!-- password -->
+
+        <mat-form-field appearance="fill">
+          <mat-label>Enter password</mat-label>
+          <input
+            formControlName="password"
+            matInput
+            [type]="hide ? 'password' : 'text'"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <!-- Bio -->
+        <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="Bio" formControlName="bio"></textarea>
+        </mat-form-field>
+
+        <!-- image url -->
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Image url</mat-label>
+          <input
+            formControlName="profileImage"
+            matInput
+            placeholder="assets/profiles"
+            value=""
+          />
+        </mat-form-field>
+
+        <div formGroupName="profileDetails">
+          <!-- qualification -->
+
+          <mat-form-field appearance="fill">
+            <mat-label>Qualification</mat-label>
+            <mat-select
+              matNativeControl
+              required
+              formControlName="qualification"
+            >
+              <mat-option *ngFor="let q of qualifications" [value]="q" selected>
+                {{ q }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- experience -->
+          <mat-form-field appearance="fill">
+            <mat-label>Experience</mat-label>
+            <mat-select matNativeControl required formControlName="experience">
+              <mat-option *ngFor="let ex of experiences" [value]="ex" selected>
+                {{ ex }}
+              </mat-option>
+            </mat-select> </mat-form-field
+          ><br />
+
+          <!-- radio -->
+          <mat-radio-group class="example-radio-group" formControlName="openTo">
+            <mat-radio-button
+              class="example-radio-button"
+              *ngFor="let open of openT"
+              [value]="open"
+            >
+              {{ open }}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <!-- skills chips -->
+
+        <mat-form-field class="example-chip-list" appearance="fill">
+          <mat-label>Skills </mat-label>
+          <mat-chip-list #skillChipList aria-label="Skill selection">
+            <mat-chip
+              *ngFor="let skill of skills"
+              (removed)="removeSkill(skill)"
+            >
+              {{ skill }}
+              <button matChipRemove>
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input
+              placeholder="Enter skill and press 'Enter' or ','"
+              [matChipInputFor]="skillChipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="addSkill($event)"
+            />
+          </mat-chip-list>
+        </mat-form-field>
+
+        <!-- certifications -->
+        <mat-form-field class="example-chip-list" appearance="fill">
+          <mat-label>Certification </mat-label>
+          <mat-chip-list #chipList aria-label="Certification selection">
+            <mat-chip
+              *ngFor="let certificate of certifications"
+              (removed)="removeCertification(certificate)"
+            >
+              {{ certificate }}
+              <button matChipRemove>
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input
+              placeholder="Enter Certification and press 'Enter' or ','"
+              [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="addCertification($event)"
+            />
+          </mat-chip-list>
+        </mat-form-field>
+
+        <!-- Submit -->
+        <div class="button-wrapper submit-button">
+          <button mat-flat-button color="primary">Submit</button>
+        </div>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>

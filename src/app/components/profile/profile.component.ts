@@ -13,7 +13,7 @@ import { Profile } from 'src/app/models/profile/profile';
 })
 export class ProfileComponent implements OnInit {
   posts: Post[] = [];
-  profile: Profile;
+  profile: Profile = JSON.parse(localStorage.getItem('profile'));
 
   postedPost: Post;
   constructor(
@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this._postService.getPostsByProfileId(105).subscribe({
+    this._postService.getPostsByProfileId(this.profile.profileId).subscribe({
       next: (data) => {
         console.log(data);
         this.posts = data;
@@ -36,7 +36,7 @@ export class ProfileComponent implements OnInit {
       },
     });
 
-    this._profileService.getByProfileId(105).subscribe({
+    this._profileService.getByProfileId(this.profile.profileId).subscribe({
       next: (data) => {
         console.log(data);
         this.profile = data;
@@ -51,14 +51,27 @@ export class ProfileComponent implements OnInit {
   }
 
   onAddingPost = (addingPost: NgForm) => {
-    console.log('clicked');
-
     let post = addingPost.value;
     post.profile = this.profile;
     this._postService.addPost(post).subscribe({
       next: (data) => {
         console.log(data);
-        // this.postedPost = data;
+        // window.location.reload();
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        console.log('completed');
+      },
+    });
+  };
+
+  onDeletePost = (postId: number) => {
+    console.log(postId);
+    this._postService.deletePost(postId).subscribe({
+      next: (data) => {
+        console.log('deleted');
       },
       error: (err) => {
         console.log(err);

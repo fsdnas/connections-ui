@@ -3,9 +3,11 @@
   <mat-drawer mode="side" opened>
     <mat-card class="profile-card">
       <mat-card-header>
-        <mat-card-title>Kevin </mat-card-title>
-        <mat-card-subtitle>Lead Software Developer</mat-card-subtitle>
-        <mat-card-subtitle>expert</mat-card-subtitle>
+        <mat-card-title>{{ profile.name }} </mat-card-title>
+        <mat-card-subtitle>{{ profile.bio }}</mat-card-subtitle>
+        <mat-card-subtitle>{{
+          profile.profileDetails.openTo
+        }}</mat-card-subtitle>
       </mat-card-header>
     </mat-card>
     <div class="type-container">
@@ -47,14 +49,18 @@
         <h1 class="sub-filter-title hover" (click)="onExperience5()">4+</h1>
       </div>
     </div>
-    <div>
-    </div>
+    <div></div>
   </mat-drawer>
   <mat-drawer-content>
     <mat-toolbar>
-      <mat-form-field style="margin-left: 900px;">
+      <mat-form-field style="margin-left: 900px">
         <div>
-          <input matInput name='search' [(ngModel)]="search" placeholder="search">
+          <input
+            matInput
+            name="search"
+            [(ngModel)]="search"
+            placeholder="search"
+          />
           <button mat-icon-button>
             <mat-icon aria-label="label">search</mat-icon>
           </button>
@@ -62,69 +68,68 @@
       </mat-form-field>
     </mat-toolbar>
     <mat-card class="job-card" *ngFor="let job of jobsList">
-      <div [ngStyle]="{display:'flex'}">
+      <div [ngStyle]="{ display: 'flex' }">
         <a *ngIf="job.company.logo" (click)="onCompany(job.company)">
-          <img class="company-logo" *ngIf="job.company" src="{{job.company.logo}}" alt="" />
+          <img
+            class="company-logo"
+            *ngIf="job.company"
+            src="{{ job.company.logo }}"
+            alt=""
+          />
         </a>
         <div>
-          <h1 class="job-title">{{job.title}}</h1>
-          <div style="width: 100px;">
-            <span [ngStyle]="{'color':'gold'}" class="material-icons">
+          <h1 class="job-title">{{ job.title }}</h1>
+          <div style="width: 100px">
+            <span [ngStyle]="{ color: 'gold' }" class="material-icons">
               star
             </span>
-            <span [ngStyle]="{'color':'gold'}" class="material-icons">
+            <span [ngStyle]="{ color: 'gold' }" class="material-icons">
               star
             </span>
-            <span [ngStyle]="{'color':'gold'}" class="material-icons">
+            <span [ngStyle]="{ color: 'gold' }" class="material-icons">
               star
             </span>
-            <span [ngStyle]="{'margin-right':'-25px','color':'gold'}" class="material-icons">
+            <span
+              [ngStyle]="{ 'margin-right': '-25px', color: 'gold' }"
+              class="material-icons"
+            >
               star
             </span>
           </div>
-          <div>
-          </div>
+          <div></div>
         </div>
       </div>
-      <div [ngStyle]="{display:'flex' ,'justify-content':'space-between'}">
-        <div [ngStyle]="{display:'flex'}">
-          <span class="material-icons">
-            location_on
-          </span>
-          <h1 class="job-info">{{job.location | titlecase}}</h1>
-          <span class="material-icons" [ngStyle]="{'padding-left':'20px'}">
+      <div [ngStyle]="{ display: 'flex', 'justify-content': 'space-between' }">
+        <div [ngStyle]="{ display: 'flex' }">
+          <span class="material-icons"> location_on </span>
+          <h1 class="job-info">{{ job.location | titlecase }}</h1>
+          <span class="material-icons" [ngStyle]="{ 'padding-left': '20px' }">
             work
           </span>
-          <h1 class="job-info">{{job.employmentType | titlecase}}</h1>
+          <h1 class="job-info">{{ job.employmentType | titlecase }}</h1>
         </div>
-        <div [ngStyle]="{display:'flex' ,'flex-direction':'row'}">
-          <h1 class="job-info" *ngIf="job.jobDetails">{{job.jobDetails.salary | currency: "INR"}}</h1>
+        <div [ngStyle]="{ display: 'flex', 'flex-direction': 'row' }">
+          <h1 class="job-info" *ngIf="job.jobDetails">
+            {{ job.jobDetails.salary | currency: "INR" }}
+          </h1>
         </div>
       </div>
-      <hr>
+      <hr />
       <div>
-        <h1 style="font-size: large;">Description</h1>
-        <p style="padding-left: 10px;">{{job.description}}</p>
+        <h1 style="font-size: large">Description</h1>
+        <p style="padding-left: 10px">{{ job.description }}</p>
       </div>
-      <button style="background-color: #4330a1;color: white;" mat-button routerLink="job-details"
-        (click)="onSubmit(job)">View More</button>
+      <button
+        style="background-color: #4330a1; color: white"
+        mat-button
+        routerLink="job-details"
+        (click)="onSubmit(job)"
+      >
+        View More
+      </button>
     </mat-card>
   </mat-drawer-content>
 </mat-drawer-container>
 
 
 
-
-
-
-
-
-
-
-<!-- <a (click)="toggleFilter()">Salary Range</a> -->
-<!-- <div *ngIf="show">
-        <h1></h1>
-      </div> <a (click)="toggleFilter()">Vacancies</a>
-      <div *ngIf="show">
-        <h1></h1>
-      </div> -->

@@ -22,7 +22,7 @@ export class PostService {
     );
   };
 
-  getPostById= (postId: number): Observable<Post> => {
+  getPostById = (postId: number): Observable<Post> => {
     return this._http.get<Post>(this._baseUrl + '/post/id/' + postId);
   };
 
@@ -37,6 +37,10 @@ export class PostService {
 
   addPost = (post: Post): Observable<Post> => {
     return this._http.post<Post>(this._baseUrl + '/post/create', post);
+  };
+
+  deletePost = (postId: number): Observable<Post> => {
+    return this._http.delete<Post>(this._baseUrl + '/post/id/' + postId);
   };
 
   addComment = (comment: Comments): Observable<Comments> => {

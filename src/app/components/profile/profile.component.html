@@ -4,7 +4,7 @@
     src="https://cutewallpaper.org/21/professional-background-photos/Professional-Page-Background-Vector-Images-over-5700.jpg"
     alt=""
   />
-  <img class="profile-pic" src="assets/profiles/scarlet.jpg" alt="" />
+  <img class="profile-pic" src={{profile.profileImage}} alt="" />
 </div>
 <div>
   <h2 class="name">{{ profile.name }}</h2>
@@ -141,7 +141,7 @@
 
       <mat-card class="card-container" *ngFor="let post of posts">
         <div class="top-post-container">
-          <a><img class="avatar" [src]="'assets/avatar.jpg'" /></a>
+          <a><img class="avatar" src={{profile.profileImage}} /></a>
           <div class="top-post-text">
             <mat-card-title class="profile-name"
               >{{ post.profile.name }}
@@ -160,6 +160,19 @@
               </span></mat-card-subtitle
             >
           </div>
+          <button [matMenuTriggerFor]="menu" [ngStyle]="{'margin-left':'auto'}" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="onDeletePost(post.postId)">
+              <mat-icon color="warn">delete</mat-icon>
+              <span>Delete</span>
+            </button>
+            <button  mat-menu-item>
+              <mat-icon color="accent" >update</mat-icon>
+              <span>Update</span>
+            </button>
+          </mat-menu>
         </div>
         <mat-card-content>
           <p>{{ post.title }}</p>
