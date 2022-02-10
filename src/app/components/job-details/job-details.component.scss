@@ -13,19 +13,26 @@
     background-color:#b0a5c7;
     
     height: 100vh;
-
   }
   mat-card{
       width:70%;
       margin-top:100px;
       height: max-content;
-          border: 1px solid #BFBFBF;
-
-    box-shadow: 10px 10px 5px #aaaaaa;
+      border: 1px solid #BFBFBF;
+      box-shadow: 10px 10px 5px #aaaaaa;
   }
   .company-logo{
     width: 150px;
     height: 150px;
     border-radius: 30px;
     margin-left: 700px;
+  }
+
+  .buttonz{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    background-color: white;
+    
   }

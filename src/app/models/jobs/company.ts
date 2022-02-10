@@ -6,7 +6,7 @@ export interface Company {
   companyName: string;
   logo: string;
   headQuarters: string;
-  industyType: Industrytype;
+  industryType: Industrytype;
   foundedYear: number;
   jobs: Set<Job>;
 }

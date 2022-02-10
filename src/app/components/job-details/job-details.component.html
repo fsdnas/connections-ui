@@ -15,8 +15,13 @@
     <mat-card-content>
         <p>{{job.description}}</p>
     </mat-card-content>
+   <mat-action-list class="buttonz">
+
+    <button mat-button style="background-color: #4330a1;color: white;" (click)="back()">Back</button>
+
     <button mat-button style="background-color: #4330a1;color: white;"(click)="onApply()">
         apply
     </button>
+   </mat-action-list>
 </mat-card>
 </div>

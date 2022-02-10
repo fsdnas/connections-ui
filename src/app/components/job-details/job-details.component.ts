@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
@@ -14,12 +15,16 @@ export class JobDetailsComponent implements OnInit {
     
     constructor(public dialog: MatDialog,
       private _jobsService:JobsService,
-      private _activatedRoute:ActivatedRoute ) { }
+      private _activatedRoute:ActivatedRoute,private _location:Location ) { }
   jobId!: number;
   job!:Job;
   // dialog!:string;
   employmentType!:string
 
+  back=()=>{
+    this._location.back();
+  }
+  
   ngOnInit(): void {
     this._activatedRoute.paramMap.subscribe(map=>{
       

@@ -1,8 +1,11 @@
-<div>
+<div  class="comnpany-card">
     <mat-card *ngIf="company">
-        <mat-card-title> {{company.companyName}}</mat-card-title>
-        <mat-card-title> {{company.companyName}}</mat-card-title>
-
+        <!-- <mat-card-title> {{company.companyName}}</mat-card-title> -->
+        <img class="company-logo" *ngIf="company" src="{{company.logo}}"/>
+        <mat-card-title>Founded Year: {{company.foundedYear}}</mat-card-title>
+        <mat-card-title>Head Quarters: {{company.headQuarters}}</mat-card-title>
+        <mat-card-title>Industry Type: {{company.industryType | titlecase}}</mat-card-title>
+        <button mat-button  (click)="back()" mat-button routerLink="jobs">Back</button>
     </mat-card>
 </div>
-<p *ngIf="company">{{company.companyName}}</p>
+<!-- <a *ngIf="company">{{company.headQuarters}}</a> -->

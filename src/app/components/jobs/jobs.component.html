@@ -9,41 +9,42 @@
       </mat-card-header>
     </mat-card>
     <div class="type-container">
-      <a class="filter-title" (click)="toggleFilterType()">Employment Type</a>
+      <a class="filter-title hover" (click)="toggleFilterType()">Employment Type</a>
       <hr style="width: 150px;">
       <div *ngIf="show1">
-        <a class="sub-filter-title" (click)="onEmploymentType()">Part Time</a>
-        <h1 class="sub-filter-title">Full time</h1>
+        <a class="sub-filter-title hover" (click)="onEmploymentPartTimeType()">Part Time</a>
+        <h1 class="sub-filter-title hover" (click)="onEmploymentFullTimeType()"> Full time</h1>
       </div>
     </div>
     <div class="type-container">
-      <a class="filter-title" (click)="toggleFilterLocation()">Location</a>
+      <a class="filter-title hover" (click)="toggleFilterLocation()">Location</a>
       <hr style="width: 150px;">
       <div *ngIf="show2">
-        <h1 class="sub-filter-title">Bangalore</h1>
-        <h1 class="sub-filter-title">Hyderabad</h1>
-        <h1 class="sub-filter-title">Mumbai</h1>
-        <h1 class="sub-filter-title">Pune</h1>
+        <h1 class="sub-filter-title hover" (click)="onLocationBangalore()">Bangalore</h1>
+        <h1 class="sub-filter-title hover"(click)="onLocationHyderabad()">Hyderabad</h1>
+        <h1 class="sub-filter-title hover" (click)="onLocationKolkata()">Kolkata</h1>
+        <h1 class="sub-filter-title hover" (click)="onLocationPune()">Pune</h1>
       </div>
     </div>
     <div class="type-container">
-      <a class="filter-title" (click)="toggleFilterCompany()">Company</a>
+      <a class="filter-title hover" (click)="toggleFilterCompany()">Company</a>
       <hr style="width: 150px;">
       <div *ngIf="show3">
-        <h1 class="sub-filter-title">TCS</h1>
-        <h1 class="sub-filter-title">Google</h1>
-        <h1 class="sub-filter-title">Amazon</h1>
-        <h1 class="sub-filter-title">Myntra</h1>
+        <h1 class="sub-filter-title hover" (click)="onCompanytcs()">TCS</h1>
+        <h1 class="sub-filter-title hover" (click)="onCompanygoogle()">Google</h1>
+        <h1 class="sub-filter-title hover" (click)="onCompanyamazon()">Amazon</h1>
+        <h1 class="sub-filter-title hover" (click)="onCompanymyntra()">Myntra</h1>
+        <h1 class="sub-filter-title hover" (click)="onCompanyjio()">Jio</h1>
       </div>
     </div>
     <div class="type-container">
-      <a class="filter-title" (click)="toggleFilterExperience()">Experience</a>
+      <a class="filter-title hover" (click)="toggleFilterExperience()">Experience</a>
       <hr style="width: 150px;">
       <div *ngIf="show4">
-        <h1 class="sub-filter-title">1 - 2</h1>
-        <h1 class="sub-filter-title">2 - 3</h1>
-        <h1 class="sub-filter-title">3 - 4</h1>
-        <h1 class="sub-filter-title">4+</h1>
+        <h1 class="sub-filter-title hover"(click)="onExperience2()">0 - 2</h1>
+        <h1 class="sub-filter-title hover"(click)="onExperience3()">2 - 3</h1>
+        <h1 class="sub-filter-title hover" (click)="onExperience4()">3 - 4</h1>
+        <h1 class="sub-filter-title hover" (click)="onExperience5()">4+</h1>
       </div>
     </div>
     <div>
@@ -110,6 +111,12 @@
     </mat-card>
   </mat-drawer-content>
 </mat-drawer-container>
+
+
+
+
+
+
 
 
 

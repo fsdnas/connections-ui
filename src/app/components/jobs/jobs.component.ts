@@ -64,15 +64,103 @@ export class JobsComponent {
   toggleFilterExperience = () => {
     this.show4 = !this.show4
   }
-  onEmploymentType = () => {
-    let part:string = "PARTTIME"
-    this._jobsService.getJobByEmploymenttype(part).subscribe({
-      next: data => {
-        // this.jobsList = data;
-        console.log(data)
-      },
-      error: error => console.log(error),
-      complete: () => console.log("completed")
+  onEmploymentPartTimeType = () => {
+    this._jobsService.getAllJobs().subscribe(data => {
+      this.jobsList = data.filter(t => t.employmentType.toLowerCase() === "parttime"
+      )
     })
   }
+  onEmploymentFullTimeType = () => {
+    this._jobsService.getAllJobs().subscribe(data => {
+      this.jobsList = data.filter(t => t.employmentType.toLowerCase() === "fulltime"
+      )
+    })
+  }
+  onLocationBangalore = () => {
+    this._jobsService.getAllJobs().subscribe(data => {
+      this.jobsList = data.filter(t => t.location.toLowerCase() === "bangalore"
+      )
+    })
+  }
+  onLocationHyderabad = () => {
+    this._jobsService.getAllJobs().subscribe(data => {
+      this.jobsList = data.filter(t => t.location.toLowerCase() === "hyderabad"
+      )
+    })
+  }
+  onLocationPune = () => {
+    this._jobsService.getAllJobs().subscribe(data => {
+      this.jobsList = data.filter(t => t.location.toLowerCase() === "pune"
+      )
+    })
+  }
+  onLocationKolkata = () => {
+    this._jobsService.getAllJobs().subscribe(data => {
+      this.jobsList = data.filter(t => t.location.toLowerCase() === "kolkata"
+      )
+    })
+  }
+  onCompanytcs = () => {
+    this._jobsService.getAllJobs().subscribe(data => {
+      this.jobsList = data.filter(t => t.company.companyName.toLowerCase() === "tcs"
+      )
+    })
+  }
+  onCompanywipro = () => {
+    this._jobsService.getAllJobs().subscribe(data => {
+      this.jobsList = data.filter(t => t.company.companyName.toLowerCase() === "wipro"
+      )
+    })
+  } onCompanymyntra = () => {
+    this._jobsService.getAllJobs().subscribe(data => {
+      this.jobsList = data.filter(t => t.company.companyName.toLowerCase() === "myntra"
+      )
+    })
+  } onCompanyamazon = () => {
+    this._jobsService.getAllJobs().subscribe(data => {
+      this.jobsList = data.filter(t => t.company.companyName.toLowerCase() === "amazon"
+      )
+    })
+  }
+  onCompanyjio = () => {
+    this._jobsService.getAllJobs().subscribe(data => {
+      this.jobsList = data.filter(t => t.company.companyName.toLowerCase() === "jio"
+      )
+    })
+  }
+  onCompanygoogle = () => {
+    this._jobsService.getAllJobs().subscribe(data => {
+      this.jobsList = data.filter(t => t.company.companyName.toLowerCase() === "google"
+      )
+    })
+  }
+  onExperience2 = () => {
+    this._jobsService.getAllJobs().subscribe(data => {
+      this.jobsList = data.filter(t => t.jobDetails.experience<="2"
+      )
+    })
+  }
+  onExperience3 = () => {
+    this._jobsService.getAllJobs().subscribe(data => {
+      this.jobsList = data.filter(t => t.jobDetails.experience=="3"
+      )
+    })
+  }
+  onExperience4 = () => {
+    this._jobsService.getAllJobs().subscribe(data => {
+      this.jobsList = data.filter(t => t.jobDetails.experience=="4"
+      )
+    })
+  }
+  onExperience5 = () => {
+    this._jobsService.getAllJobs().subscribe(data => {
+      this.jobsList = data.filter(t => t.jobDetails.experience>="5"
+      )
+    })
+  }
+
+
+
+
+
 }

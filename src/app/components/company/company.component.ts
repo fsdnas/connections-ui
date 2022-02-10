@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
@@ -13,12 +14,15 @@ import { JobsService } from 'src/app/services/jobs.service';
 export class CompanyComponent implements OnInit {
   constructor(public dialog: MatDialog,
     private _jobsService: JobsService,
-    private _activatedRoute: ActivatedRoute) { }
+    private _activatedRoute: ActivatedRoute,private _location:Location) { }
 
   jobId!: number;
   company!: Company;
 
-
+  back=()=>{
+    this._location.back();
+  }
+  
   ngOnInit(): void {
     this._activatedRoute.paramMap.subscribe(map => {
       let cName = map.get("companyName");
@@ -26,11 +30,10 @@ export class CompanyComponent implements OnInit {
         next: (data) => {
           console.log(data);
           this.company = data;
-
-
         }
       }
       );
     });
   }
+
 }
