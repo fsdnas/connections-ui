@@ -8,6 +8,7 @@ import { Profile } from '../models/profile/profile';
 })
 export class ProfileService {
   private _baseurl: string = 'http://localhost:8081/profile-api/profiles';
+  
   constructor(private http: HttpClient) {}
 
   getAllProfiles = (): Observable<Profile[]> => {
@@ -17,4 +18,8 @@ export class ProfileService {
   getByProfileId = (profileId: number): Observable<Profile> => {
     return this.http.get<Profile>(this._baseurl + '/id/' + profileId);
   };
+
+  addProfile=(profile: Profile): Observable<Profile> => {
+    return this.http.post<Profile>(this._baseurl, profile);
+  }
 }

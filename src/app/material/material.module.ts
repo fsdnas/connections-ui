@@ -6,7 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -15,9 +15,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatMenuModule} from '@angular/material/menu';
-
-
+import { MatMenuModule } from '@angular/material/menu';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [],
@@ -36,7 +36,10 @@ import {MatMenuModule} from '@angular/material/menu';
     MatListModule,
     MatExpansionModule,
     MatDialogModule,
-    MatDividerModule,MatMenuModule
+    MatDividerModule,
+    MatMenuModule,
+    MatRadioModule,
+    MatChipsModule,
   ],
   exports: [
     CommonModule,
@@ -53,7 +56,10 @@ import {MatMenuModule} from '@angular/material/menu';
     MatListModule,
     MatExpansionModule,
     MatDialogModule,
-    MatDividerModule,MatMenuModule
+    MatDividerModule,
+    MatMenuModule,
+    MatRadioModule,
+    MatChipsModule,
   ],
 })
 export class MaterialModule {}
